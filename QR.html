@@ -1,0 +1,31 @@
+<html>
+    <head>
+	<meta http-equiv="refresh" content="2">
+
+	
+
+        <title>Testing QR code</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            function generateBarCode()
+            {
+		var today = new Date();
+		var nric = today.getHours() + today.getMinutes() + today.getSeconds() ;
+		
+                var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+                $('#barcode').attr('src', url);
+            }
+        </script>
+    </head>
+
+	<body onload= 'generateBarCode();' />
+<div id="txt"></div>
+
+      <img id='barcode' 
+            src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" 
+            alt="" 
+            title="HELLO" 
+            width="50" 
+            height="50" />
+    </body>
+</html>
